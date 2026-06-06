@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acerca do Sanda Dojo Virtual — Conhece a missão, filosofia e os fundadores João Barros e Sebastian Diaz.">
+  <title>Acerca de Nós | Sanda Dojo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Saltar para o conteúdo principal</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Navegação principal">
+    <a href="index.html" class="nav-logo" aria-label="Sanda Dojo — Página inicial">Sanda Dojo</a>
+    <ul role="list">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="index.html#modulos">Módulos</a></li>
+      <li><a href="about.html" class="active" aria-current="page">Acerca de Nós</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="index.html#modulos" class="nav-cta">Começar Treino</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <div class="container">
+
+      <div class="about-hero">
+        <div class="section-label" aria-hidden="true">Sobre o Dojo</div>
+        <h1>Acerca<br><span>de Nós</span></h1>
+        <p>O Sanda Dojo Virtual nasceu da paixão de dois praticantes unidos pelo desejo de partilhar a tradição e a técnica do Kung Fu Sanda com o mundo.</p>
+      </div>
+
+      <div class="about-grid" role="list" aria-label="Pilares do Sanda Dojo">
+        <div class="about-card" role="listitem">
+          <h3>Missão</h3>
+          <p>Democratizar o acesso ao ensino do Sanda através de uma plataforma digital rigorosa, que respeita os princípios do Wude e a herança do Kung Fu tradicional.</p>
+        </div>
+        <div class="about-card" role="listitem">
+          <h3>Filosofia</h3>
+          <p>Acreditamos que o combate é disciplina interior. Cada técnica ensinada aqui é construída sobre a base da ética marcial — respeito, perseverança e honra.</p>
+        </div>
+        <div class="about-card" role="listitem">
+          <h3>Metodologia</h3>
+          <p>Combinamos teoria, análise biomecânica, vídeo demonstrativo e avaliação contínua para garantir uma aprendizagem sólida e progressiva.</p>
+        </div>
+      </div>
+
+      <section class="founders-section" aria-labelledby="founders-title">
+        <div class="section-label" aria-hidden="true">Os Fundadores</div>
+        <h2 id="founders-title">Quem somos</h2>
+        <div class="founder-cards">
+
+          <article class="founder-card" aria-label="Perfil de João Barros">
+            <div class="founder-avatar" aria-hidden="true">JB</div>
+            <div class="founder-info">
+              <h3>João Barros</h3>
+              <p>Instrutor de Sanda &amp; Kung Fu tradicional. Praticante há mais de 10 anos, especializado em técnicas de projeção e combate de pé no estilo Lei Tai.</p>
+            </div>
+          </article>
+
+          <article class="founder-card" aria-label="Perfil de Sebastian Diaz">
+            <div class="founder-avatar" aria-hidden="true">SD</div>
+            <div class="founder-info">
+              <h3>Sebastian Diaz</h3>
+              <p>Analista de biomecânica marcial e co-fundador do dojo. Foca-se na pedagogia do movimento e na integração da teoria com a prática de alto desempenho.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Sanda Dojo — Página inicial">Sanda Dojo</a>
+        <p>A arte marcial chinesa de combate total. Disciplina, técnica e coragem desde o primeiro treino.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navegação do rodapé">
+        <h4>Navegação</h4>
+        <ul role="list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#modulos">Módulos</a></li>
+          <li><a href="about.html">Acerca de Nós</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h4>Instrutores</h4>
+        <p>João Barros</p><small>Instrutor Principal</small>
+        <br><br>
+        <p>Sebastian Diaz</p><small>Biomecânica &amp; Metodologia</small>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><small>&copy; 2024 Sanda Dojo Virtual</small></p>
+      <p class="founders-credit"><small>João Barros &amp; Sebastian Diaz</small></p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('.site-nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 40
+        ? 'rgba(8,8,8,0.95)'
+        : 'rgba(8,8,8,0.72)';
+    }, { passive: true });
+  </script>
+</body>
+</html>
