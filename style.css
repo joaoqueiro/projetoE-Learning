@@ -1202,44 +1202,49 @@ h2.section-title em {
   margin: 0;
   opacity: 0.9;
 }
-
 .chapter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
 }
 
 .chapter-card {
-    background: var(--grey);
-    border: 1px solid #333;
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.03); /* Efeito vidro subtil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
     text-decoration: none;
-    color: var(--white);
-    transition: 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    color: white;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
 .chapter-card:hover {
+    background: rgba(212, 175, 55, 0.05);
     border-color: var(--gold);
-    transform: translateY(-5px);
-    background: #222;
+    transform: scale(1.02);
 }
 
-.card-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--dark-red);
+.card-status {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--gold);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 15px;
-    border-radius: 50%;
+    font-weight: bold;
 }
 
-.chapter-card h3 { color: var(--gold); margin-bottom: 10px; }
+.active-next { border-left: 4px solid var(--gold); }
+
+.locked { 
+    opacity: 0.6; 
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.chapter-card h3 { 
+    margin: 0 0 10px 0; 
+    font-size: 1.4rem; 
+}
