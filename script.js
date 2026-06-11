@@ -223,17 +223,17 @@ function showResult(total, chapterIndex) {
     const pct = Math.round((score / total) * 100);
     const container = document.getElementById('quiz-container');
     
-    // Define a nota mínima para passar (ex: 60%)
+    // Se acertou pelo menos 60%
     const passou = pct >= 60;
 
     if (passou) {
-        // Marca como concluído no LocalStorage
+        // AQUI ESTÁ O PASSO CRÍTICO:
         completeChapter(chapterIndex);
         
         container.innerHTML = `
             <div class="quiz-result">
-                <h3 class="result-title">Parabéns! Capítulo concluído.</h3>
-                <p>Pontuação: ${score}/${total} (${pct}%)</p>
+                <h3>Parabéns! Capítulo concluído.</h3>
+                <p>Pontuação: ${score}/${total} (${pct}%). O próximo capítulo foi desbloqueado!</p>
                 <button class="btn-main" onclick="window.location.href='../modulo1.html'">Voltar ao Hub</button>
             </div>
         `;
@@ -241,7 +241,7 @@ function showResult(total, chapterIndex) {
         container.innerHTML = `
             <div class="quiz-result">
                 <h3>Precisas de melhorar!</h3>
-                <p>Acertaste ${score}/${total} (${pct}%). Tenta novamente para desbloquear o próximo capítulo.</p>
+                <p>Acertaste ${pct}%. Tenta novamente para desbloquear o próximo capítulo.</p>
                 <button class="btn-main" onclick="location.reload()">Recomeçar Quiz</button>
             </div>
         `;
