@@ -210,118 +210,60 @@ const database = {
   function nextQuestion() {
     currentIndex++;
     const total = database[quizType].questions.length;
-  
     if (currentIndex < total) {
-      loadQuestion(quizType);
+        loadQuestion(quizType);
     } else {
-      showResult(total);
+        // Passa o índice que guardámos anteriormente
+        showResult(total, window.currentChapterIndex); 
     }
-  }
+}
   
   /* ── Resultado final ────────────────────────── */
-  function showResult(total) {
+function showResult(total, chapterIndex) {
     const pct = Math.round((score / total) * 100);
-    const fill = document.getElementById('progress-fill');
-    if (fill) fill.style.width = '100%';
-  
-    let badge, msg;
-    if (pct === 100) {
-      badge = '🏆'; msg = 'Perfeito! Dominas os fundamentos do Sanda.';
-    } else if (pct >= 60) {
-      badge = '🥊'; msg = 'Bom trabalho! Revê as perguntas que erraste.';
-    } else {
-      badge = '📖'; msg = 'Continua a estudar a teoria e o vídeo — consegues!';
-    }
-  
     const container = document.getElementById('quiz-container');
-    if (!container) return;
-    container.innerHTML = `
-      <div class="quiz-result" role="region" aria-label="Resultado do quiz" tabindex="-1">
-        <div class="result-badge" aria-hidden="true">${badge}</div>
-        <h3 class="result-title">Módulo 1 Concluído</h3>
-        <div class="result-score" aria-label="Pontuação final: ${score} de ${total}">
-          <span class="result-num">${score}</span>
-          <span class="result-denom">/ ${total}</span>
-        </div>
-        <div class="result-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="${pct}% de acertos">
-          <div class="result-bar-fill" style="width:${pct}%"></div>
-          <span class="result-pct">${pct}%</span>
-        </div>
-        <p class="result-msg">${msg}</p>
-        <button class="btn-main" onclick="startQuiz('sanda')" aria-label="Reiniciar o quiz do Módulo 1">
-          Tentar novamente
-        </button>
-      </div>
-    `;
-    container.querySelector('.quiz-result').focus();
-  }
-
-// Verifica se o capítulo atual pode ser acedido
-function checkAccess(chapterIndex) {
-    const progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
     
-    if (!progress[chapterIndex]) {
-        alert("Precisas de completar o capítulo anterior primeiro!");
-        window.location.href = "modulo1.html";
+    // Define a nota mínima para passar (ex: 60%)
+    const passou = pct >= 60;
+
+    if (passou) {
+        // Marca como concluído no LocalStorage
+        completeChapter(chapterIndex);
+        
+        container.innerHTML = `
+            <div class="quiz-result">
+                <h3 class="result-title">Parabéns! Capítulo concluído.</h3>
+                <p>Pontuação: ${score}/${total} (${pct}%)</p>
+                <button class="btn-main" onclick="window.location.href='../modulo1.html'">Voltar ao Hub</button>
+            </div>
+        `;
+    } else {
+        container.innerHTML = `
+            <div class="quiz-result">
+                <h3>Precisas de melhorar!</h3>
+                <p>Acertaste ${score}/${total} (${pct}%). Tenta novamente para desbloquear o próximo capítulo.</p>
+                <button class="btn-main" onclick="location.reload()">Recomeçar Quiz</button>
+            </div>
+        `;
     }
 }
 
-// Marca o capítulo como concluído e desbloqueia o próximo
+/* ── Gestão de Progresso ──────────────────────── */
 function completeChapter(chapterIndex) {
     let progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
-    
-    // Marca o próximo como true
     if (chapterIndex < progress.length - 1) {
         progress[chapterIndex + 1] = true;
     }
-    
     localStorage.setItem('sanda_progress', JSON.stringify(progress));
-    alert("Parabéns! Capítulo concluído. Podes avançar.");
 }
 
-function finishChapter(index) {
-    completeChapter(index);
-    // Redireciona para o Hub após concluir
-    window.location.href = "modulo1.html";
-}
-
-// Adiciona esta variável para controlar se o quiz foi passado
-let score = 0;
-
-function checkAnswer(selected, correct) {
-    const feedback = document.getElementById('feedback');
-    if(selected === correct) {
-        score++; // Incrementa pontuação
-        feedback.innerText = "✓ Correto!";
-    } else {
-        feedback.innerText = "✗ Incorreto. Revisa a teoria.";
-    }
-    
-    // Mostra o botão após responder
-    document.getElementById('next-btn').style.display = "block";
-}
-
-function nextQuestion() {
-    currentIndex++;
-    if(currentIndex < database.sanda.questions.length) {
-        loadQuestion('sanda');
-    } else {
-        // Lógica de finalização
-        const container = document.getElementById('quiz-container');
-        if (score >= 3) { // Exemplo: precisas de acertar 3 de 5
-            container.innerHTML = `
-                <h3>Parabéns! Capítulo concluído.</h3>
-                <p>Pontuação: ${score}/${database.sanda.questions.length}</p>
-                <button class="btn-main" onclick="window.location.href='../modulo1.html'">Voltar ao Hub</button>
-            `;
-            // Aqui chamamos a função que desbloqueia a próxima etapa
-            completeChapter(currentChapterIndex); 
-        } else {
-            container.innerHTML = `
-                <h3>Precisas de melhorar!</h3>
-                <p>Acertaste ${score}. Tenta novamente.</p>
-                <button class="btn-main" onclick="location.reload()">Recomeçar Quiz</button>
-            `;
-        }
-    }
+// ATENÇÃO: Quando iniciares o quiz em cada capítulo, passa o índice correto
+// Exemplo: No capitulo1.html, chama startQuiz('sanda', 0);
+function startQuiz(type, chapterIndex) {
+    quizType = type;
+    currentIndex = 0;
+    score = 0;
+    answered = false;
+    window.currentChapterIndex = chapterIndex; // Guarda o índice para o final
+    renderQuiz();
 }
