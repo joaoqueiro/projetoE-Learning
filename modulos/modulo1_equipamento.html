@@ -1,25 +1,65 @@
-<main id="main-content">
-  <div class="container">
-    <header class="mod-header">
-      <div class="section-label">Módulo 01 — Capítulo 2</div>
-      <h1>Socos (Da)</h1>
-    </header>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanda Dojo Virtual — Plataforma de ensino de Kung Fu Sanda. Aprende técnicas de base, biomecânica e combate real com os instrutores João Barros e Sebastian Diaz.">
+  <title>Sanda Dojo — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <div class="tabs-interface">
-      <div class="tab-list" role="tablist">
-        <button class="tab-link active" onclick="switchTab(event,'theory')">Técnica</button>
-        <button class="tab-link" onclick="switchTab(event,'video')">Demonstração</button>
-        <button class="tab-link" onclick="switchTab(event,'quiz')">Quiz</button>
-      </div>
+  <!-- ACESSIBILIDADE: Saltar para conteúdo principal -->
+  <a class="skip-link" href="#main-content">Saltar para o conteúdo principal</a>
 
-      <div id="panel-theory" class="tab-pane active">
-        <h2>Dinâmica do Soco no Sanda</h2>
-        <p>O soco no Sanda é explosivo. A força não vem do braço, mas da rotação da anca.</p>
-        
-      </div>
-      
-      <div id="panel-video" class="tab-pane">...</div>
-      <div id="panel-quiz" class="tab-pane">...</div>
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Navegação principal">
+    <!--<img src="Midia/Kung-Fu Sanda Português.png" width="50" height="50">-->
+    <a href="index.html"class="nav-logo" aria-label="Sanda Dojo — Página inicial"><img src="Midia/Kung-Fu Sanda Português.png" width="60" height="60"></a>
+    <ul role="list">
+      <li><a href="index.html" class="active" aria-current="page">Início</a></li>
+      <li><a href="#modulos">Módulos</a></li>
+      <li><a href="about.html">Acerca de Nós</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="main-hero" role="banner">
+    <div class="hero-inner">
+      <div class="hero-eyebrow" aria-hidden="true">Arte Marcial Chinesa de Combate Total</div>
+      <h1>Sanda<br><span>Mastery</span></h1>
+      <p>A tradição do Kung Fu fundida com a intensidade do combate moderno.</p>
+      <a href="#modulos" class="cta-btn" aria-label="Começar treino — ir para os módulos de estudo">Começar Treino</a>
     </div>
-  </div>
-</main>
+    <!--<div class="hero-scroll" aria-hidden="true">Scroll <span></span></div>-->
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <header class="mod-header">
+        <div class="section-label">Módulo 01 — Capítulo 2</div>
+        <h1>Socos (Da)</h1>
+      </header>
+  
+      <div class="tabs-interface">
+        <div class="tab-list" role="tablist">
+          <button class="tab-link active" onclick="switchTab(event,'theory')">Técnica</button>
+          <button class="tab-link" onclick="switchTab(event,'video')">Demonstração</button>
+          <button class="tab-link" onclick="switchTab(event,'quiz')">Quiz</button>
+        </div>
+  
+        <div id="panel-theory" class="tab-pane active">
+          <h2>Dinâmica do Soco no Sanda</h2>
+          <p>O soco no Sanda é explosivo. A força não vem do braço, mas da rotação da anca.</p>
+          
+        </div>
+        
+        <div id="panel-video" class="tab-pane">...</div>
+        <div id="panel-quiz" class="tab-pane">...</div>
+      </div>
+    </div>
+  </main>
+
+ </body>
+</html> 
