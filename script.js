@@ -249,12 +249,22 @@ function showResult(total, chapterIndex) {
 }
 
 /* ── Gestão de Progresso ──────────────────────── */
+// Garante que o progresso é lido corretamente
+function getProgress() {
+    return JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
+}
+
+// Esta função deve ser chamada quando o quiz termina com sucesso
 function completeChapter(chapterIndex) {
-    let progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
+    let progress = getProgress();
+    
+    // Desbloqueia o próximo capítulo se existir
     if (chapterIndex < progress.length - 1) {
         progress[chapterIndex + 1] = true;
     }
+    
     localStorage.setItem('sanda_progress', JSON.stringify(progress));
+    console.log("Progresso atualizado:", progress); // Ajuda a ver no F12 se funcionou
 }
 
 // ATENÇÃO: Quando iniciares o quiz em cada capítulo, passa o índice correto
