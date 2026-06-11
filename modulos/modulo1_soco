@@ -1,0 +1,25 @@
+<main id="main-content">
+  <div class="container">
+    <header class="mod-header">
+      <div class="section-label">Módulo 01 — Capítulo 2</div>
+      <h1>Socos (Da)</h1>
+    </header>
+
+    <div class="tabs-interface">
+      <div class="tab-list" role="tablist">
+        <button class="tab-link active" onclick="switchTab(event,'theory')">Técnica</button>
+        <button class="tab-link" onclick="switchTab(event,'video')">Demonstração</button>
+        <button class="tab-link" onclick="switchTab(event,'quiz')">Quiz</button>
+      </div>
+
+      <div id="panel-theory" class="tab-pane active">
+        <h2>Dinâmica do Soco no Sanda</h2>
+        <p>O soco no Sanda é explosivo. A força não vem do braço, mas da rotação da anca.</p>
+        
+      </div>
+      
+      <div id="panel-video" class="tab-pane">...</div>
+      <div id="panel-quiz" class="tab-pane">...</div>
+    </div>
+  </div>
+</main>
