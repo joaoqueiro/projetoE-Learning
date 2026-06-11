@@ -282,5 +282,46 @@ function completeChapter(chapterIndex) {
 function finishChapter(index) {
     completeChapter(index);
     // Redireciona para o Hub após concluir
-    window.location.href = "modulo1_hub.html";
+    window.location.href = "modulo1.html";
+}
+
+// Adiciona esta variável para controlar se o quiz foi passado
+let score = 0;
+
+function checkAnswer(selected, correct) {
+    const feedback = document.getElementById('feedback');
+    if(selected === correct) {
+        score++; // Incrementa pontuação
+        feedback.innerText = "✓ Correto!";
+    } else {
+        feedback.innerText = "✗ Incorreto. Revisa a teoria.";
+    }
+    
+    // Mostra o botão após responder
+    document.getElementById('next-btn').style.display = "block";
+}
+
+function nextQuestion() {
+    currentIndex++;
+    if(currentIndex < database.sanda.questions.length) {
+        loadQuestion('sanda');
+    } else {
+        // Lógica de finalização
+        const container = document.getElementById('quiz-container');
+        if (score >= 3) { // Exemplo: precisas de acertar 3 de 5
+            container.innerHTML = `
+                <h3>Parabéns! Capítulo concluído.</h3>
+                <p>Pontuação: ${score}/${database.sanda.questions.length}</p>
+                <button class="btn-main" onclick="window.location.href='../modulo1.html'">Voltar ao Hub</button>
+            `;
+            // Aqui chamamos a função que desbloqueia a próxima etapa
+            completeChapter(currentChapterIndex); 
+        } else {
+            container.innerHTML = `
+                <h3>Precisas de melhorar!</h3>
+                <p>Acertaste ${score}. Tenta novamente.</p>
+                <button class="btn-main" onclick="location.reload()">Recomeçar Quiz</button>
+            `;
+        }
+    }
 }
