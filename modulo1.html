@@ -55,15 +55,22 @@
 <script src="script.js"></script>
 <!--Parte do script-->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // Busca o progresso atual
     const progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
     const cards = document.querySelectorAll('.chapter-card');
 
     cards.forEach((card, index) => {
+        // Se o capítulo não estiver desbloqueado (false), bloqueia
         if (!progress[index]) {
             card.classList.add('locked');
-            card.removeAttribute('href'); // Impede o clique
-            card.onclick = () => alert("Capítulo bloqueado. Completa o anterior!");
+            card.style.pointerEvents = "none"; // Impede cliques via CSS
+            card.style.filter = "grayscale(1) opacity(0.5)"; // Estilo visual bloqueado
+            card.removeAttribute('href'); 
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("Completa o capítulo anterior para desbloquear este!");
+            });
         }
     });
 });
