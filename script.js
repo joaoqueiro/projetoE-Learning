@@ -253,13 +253,15 @@ function getProgress() {
 
 // Esta função deve ser chamada quando o quiz termina com sucesso
 function completeChapter(chapterIndex) {
-    let progress = getProgress();
+    // Busca o que já existe
+    let progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
     
-    // Desbloqueia o próximo capítulo se existir
+    // Atualiza apenas o próximo índice para true
     if (chapterIndex < progress.length - 1) {
         progress[chapterIndex + 1] = true;
     }
     
+    // Guarda o array inteiro de volta
     localStorage.setItem('sanda_progress', JSON.stringify(progress));
-    console.log("Progresso atualizado:", progress); // Ajuda a ver no F12 se funcionou
+    console.log("Progresso guardado:", progress); // Verifica isto no F12 -> Console
 }
