@@ -48,13 +48,16 @@ const database = {
   let quizType = 'sanda';
   
   /* ── Iniciar quiz ───────────────────────────── */
-  function startQuiz(type) {
+  let currentChapterIndex = 0; // Adiciona isto no topo do script.js
+
+function startQuiz(type, index) {
+    currentChapterIndex = index; // Guarda o índice ao iniciar
     quizType = type;
     currentIndex = 0;
     score = 0;
     answered = false;
     renderQuiz();
-  }
+}
   
   /* ── Renderizar estrutura base ──────────────── */
   function renderQuiz() {
@@ -207,14 +210,13 @@ const database = {
   }
   
   /* ── Próxima pergunta / Resultado ───────────── */
-  function nextQuestion() {
+function nextQuestion() {
     currentIndex++;
     const total = database[quizType].questions.length;
     if (currentIndex < total) {
         loadQuestion(quizType);
     } else {
-        // Passa o índice que guardámos anteriormente
-        showResult(total, window.currentChapterIndex); 
+        showResult(total, currentChapterIndex); // Passa o índice aqui!
     }
 }
   
