@@ -255,3 +255,26 @@ const database = {
     `;
     container.querySelector('.quiz-result').focus();
   }
+
+// Verifica se o capítulo atual pode ser acedido
+function checkAccess(chapterIndex) {
+    const progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
+    
+    if (!progress[chapterIndex]) {
+        alert("Precisas de completar o capítulo anterior primeiro!");
+        window.location.href = "modulo1.html";
+    }
+}
+
+// Marca o capítulo como concluído e desbloqueia o próximo
+function completeChapter(chapterIndex) {
+    let progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
+    
+    // Marca o próximo como true
+    if (chapterIndex < progress.length - 1) {
+        progress[chapterIndex + 1] = true;
+    }
+    
+    localStorage.setItem('sanda_progress', JSON.stringify(progress));
+    alert("Parabéns! Capítulo concluído. Podes avançar.");
+}
