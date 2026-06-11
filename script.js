@@ -278,3 +278,9 @@ function completeChapter(chapterIndex) {
     localStorage.setItem('sanda_progress', JSON.stringify(progress));
     alert("Parabéns! Capítulo concluído. Podes avançar.");
 }
+
+function finishChapter(index) {
+    completeChapter(index);
+    // Redireciona para o Hub após concluir
+    window.location.href = "modulo1_hub.html";
+}
