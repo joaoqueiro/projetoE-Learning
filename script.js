@@ -48,10 +48,11 @@ const database = {
   let quizType = 'sanda';
   
   /* ── Iniciar quiz ───────────────────────────── */
-  let currentChapterIndex = 0; // Adiciona isto no topo do script.js
+// Variável global para guardar o capítulo atual
+let currentChapterIndex = 0; 
 
-function startQuiz(type, index) {
-    currentChapterIndex = index; // Guarda o índice ao iniciar
+function startQuiz(type, chapterIndex) {
+    currentChapterIndex = chapterIndex; // Guarda o índice ao abrir a tab
     quizType = type;
     currentIndex = 0;
     score = 0;
@@ -221,31 +222,25 @@ function nextQuestion() {
 }
   
   /* ── Resultado final ────────────────────────── */
-function showResult(total, chapterIndex) {
+// Dentro da função showResult (a que mostra o final do quiz):
+function showResult(total) {
     const pct = Math.round((score / total) * 100);
     const container = document.getElementById('quiz-container');
     
-    // Se acertou pelo menos 60%
-    const passou = pct >= 60;
-
-    if (passou) {
-        // AQUI ESTÁ O PASSO CRÍTICO:
-        completeChapter(chapterIndex);
+    if (pct >= 60) {
+        // AQUI ESTÁ O SEGREDO: usamos a variável guardada
+        completeChapter(currentChapterIndex); 
         
         container.innerHTML = `
-            <div class="quiz-result">
-                <h3>Parabéns! Capítulo concluído.</h3>
-                <p>Pontuação: ${score}/${total} (${pct}%). O próximo capítulo foi desbloqueado!</p>
-                <button class="btn-main" onclick="window.location.href='../modulo1.html'">Voltar ao Hub</button>
-            </div>
+            <h3>Parabéns! Capítulo concluído.</h3>
+            <p>O próximo capítulo foi desbloqueado.</p>
+            <button class="btn-main" onclick="window.location.href='../modulo1.html'">Voltar ao Hub</button>
         `;
     } else {
         container.innerHTML = `
-            <div class="quiz-result">
-                <h3>Precisas de melhorar!</h3>
-                <p>Acertaste ${pct}%. Tenta novamente para desbloquear o próximo capítulo.</p>
-                <button class="btn-main" onclick="location.reload()">Recomeçar Quiz</button>
-            </div>
+            <h3>Precisas de melhorar!</h3>
+            <p>Tenta novamente para desbloquear o progresso.</p>
+            <button class="btn-main" onclick="location.reload()">Recomeçar</button>
         `;
     }
 }
