@@ -263,14 +263,3 @@ function completeChapter(chapterIndex) {
     localStorage.setItem('sanda_progress', JSON.stringify(progress));
     console.log("Progresso atualizado:", progress); // Ajuda a ver no F12 se funcionou
 }
-
-// ATENÇÃO: Quando iniciares o quiz em cada capítulo, passa o índice correto
-// Exemplo: No capitulo1.html, chama startQuiz('sanda', 0);
-function startQuiz(type, chapterIndex) {
-    quizType = type;
-    currentIndex = 0;
-    score = 0;
-    answered = false;
-    window.currentChapterIndex = chapterIndex; // Guarda o índice para o final
-    renderQuiz();
-}
