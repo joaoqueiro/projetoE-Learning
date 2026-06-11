@@ -61,17 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.chapter-card');
 
     cards.forEach((card, index) => {
-        // Se o capítulo não estiver desbloqueado (false), bloqueia
-        if (!progress[index]) {
-            card.classList.add('locked');
-            card.style.pointerEvents = "none"; // Impede cliques via CSS
-            card.style.filter = "grayscale(1) opacity(0.5)"; // Estilo visual bloqueado
-            card.removeAttribute('href'); 
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert("Completa o capítulo anterior para desbloquear este!");
-            });
-        }
-    });
+          // Se o progresso for false, bloqueia
+          if (progress[index] === false) { 
+              card.classList.add('locked');
+              card.style.pointerEvents = "none";
+              card.removeAttribute('href');
+          } else {
+              // Garante que se for true, o link funciona
+              card.classList.remove('locked');
+              card.style.pointerEvents = "auto";
+          }
+      });
 });
 </script>
