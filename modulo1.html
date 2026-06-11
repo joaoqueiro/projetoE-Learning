@@ -52,3 +52,18 @@
     </main>
 </body>
 </html>
+<!--Parte do script-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const progress = JSON.parse(localStorage.getItem('sanda_progress')) || [true, false, false, false];
+    const cards = document.querySelectorAll('.chapter-card');
+
+    cards.forEach((card, index) => {
+        if (!progress[index]) {
+            card.classList.add('locked');
+            card.removeAttribute('href'); // Impede o clique
+            card.onclick = () => alert("Capítulo bloqueado. Completa o anterior!");
+        }
+    });
+});
+</script>
