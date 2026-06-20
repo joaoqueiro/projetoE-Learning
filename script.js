@@ -80,106 +80,31 @@ const database = {
    //perguntas do soco
     socos: {
         questions: [
-            {
-          q: "Qual o objetivo principal do Catch Kick no Sanda?",
-          opts: ["Bloquear o ataque sem contrapartida", "Capturar a perna e executar uma projeção", "Fugir do alcance do adversário"],
-          correct: 1,
-          explanation: "O Catch Kick (captura de pontapé) é uma das técnicas mais características do Sanda: ao agarrar a perna do adversário, o praticante pode desequilibrá-lo e executar uma projeção (Shuai), ganhando pontos no Lei Tai."
-        },
-        {
-          q: "O equipamento obrigatório no Sanda amador inclui:",
-          opts: ["Nenhum equipamento de proteção", "Capacete homologado e protetor de peito", "Apenas luvas de boxe"],
-          correct: 2,
-          explanation: "No Sanda amador, o capacete e o protetor de peito (peitoral) são obrigatórios por normas de segurança. Ligaduras, caneleiras e protetor bucal também são altamente recomendados."
-        },
-        {
-          q: "A técnica 'Shuai' refere-se a:",
-          opts: ["Técnicas de projeção e derrube", "Socos em linha reta (jab/direto)", "Combinações de pontapés circulares"],
-          correct: 0,
-          explanation: "Shuai (摔) significa 'lançar' ou 'derrubar' em mandarim. No Sanda, as técnicas de Shuai são projeções inspiradas no Shuai Jiao (luta chinesa), que valem pontos quando o adversário toca o chão."
-        },
-        {
-          q: "O ringue tradicional do Sanda é denominado:",
-          opts: ["Tatami", "Lei Tai", "Dojo"],
-          correct: 1,
-          explanation: "O Lei Tai (擂台) é a plataforma elevada tradicional usada no Sanda. Historicamente era uma plataforma sem grades — cair fora do ringue também significa perda de pontos, tornando o posicionamento estratégico crucial."
-        },
-        {
-          q: "Qual o peso aproximado das luvas de treino mais comum no Sanda?",
-          opts: ["10oz – 12oz", "4oz – 6oz", "16oz – 18oz"],
-          correct: 0,
-          explanation: "As luvas de 10oz a 12oz são as mais usadas em treino de Sanda. Luvas mais pesadas (14–16oz) são preferidas em sparring intenso para maior proteção, enquanto as mais leves são usadas em competição profissional."
-        }
+            { q: "Qual a base da potência no soco (Chuan Quan)?", opts: ["Força do ombro", "Rotação da anca", "Tamanho do braço"], correct: 1, explanation: "A potência nasce no solo e é amplificada pela rotação explosiva da anca." },
+      { q: "Qual a função do 'Jab' no Sanda?", opts: ["Medir distância e distrair", "Nocautear", "Projetar"], correct: 0, explanation: "O jab mantém o oponente longe e abre brechas para ataques mais fortes." },
+      { q: "O soco Uppercut (Shang Gou) é ideal para:", opts: ["Curta distância", "Longo alcance", "Chutar"], correct: 1, explanation: "O uppercut é uma técnica de curta distância, eficaz por baixo da guarda." },
+      { q: "Ao socar, o punho deve estar:", opts: ["Relaxado", "Fechado e firme no impacto", "Aberto"], correct: 2, explanation: "O punho deve estar firme no momento exato do impacto para transmitir energia." },
+      { q: "A guarda deve proteger:", opts: ["Apenas as pernas", "A cabeça e o tronco", "Nenhuma parte"], correct: 1, explanation: "A guarda alta é essencial para proteger pontos vitais como o rosto e as costelas." }
         ]
     },
    //perguntas do pontapé
     pontapes: {
         questions: [
-            {
-          q: "Qual o objetivo principal do Catch Kick no Sanda?",
-          opts: ["Bloquear o ataque sem contrapartida", "Capturar a perna e executar uma projeção", "Fugir do alcance do adversário"],
-          correct: 1,
-          explanation: "O Catch Kick (captura de pontapé) é uma das técnicas mais características do Sanda: ao agarrar a perna do adversário, o praticante pode desequilibrá-lo e executar uma projeção (Shuai), ganhando pontos no Lei Tai."
-        },
-        {
-          q: "O equipamento obrigatório no Sanda amador inclui:",
-          opts: ["Nenhum equipamento de proteção", "Capacete homologado e protetor de peito", "Apenas luvas de boxe"],
-          correct: 2,
-          explanation: "No Sanda amador, o capacete e o protetor de peito (peitoral) são obrigatórios por normas de segurança. Ligaduras, caneleiras e protetor bucal também são altamente recomendados."
-        },
-        {
-          q: "A técnica 'Shuai' refere-se a:",
-          opts: ["Técnicas de projeção e derrube", "Socos em linha reta (jab/direto)", "Combinações de pontapés circulares"],
-          correct: 0,
-          explanation: "Shuai (摔) significa 'lançar' ou 'derrubar' em mandarim. No Sanda, as técnicas de Shuai são projeções inspiradas no Shuai Jiao (luta chinesa), que valem pontos quando o adversário toca o chão."
-        },
-        {
-          q: "O ringue tradicional do Sanda é denominado:",
-          opts: ["Tatami", "Lei Tai", "Dojo"],
-          correct: 1,
-          explanation: "O Lei Tai (擂台) é a plataforma elevada tradicional usada no Sanda. Historicamente era uma plataforma sem grades — cair fora do ringue também significa perda de pontos, tornando o posicionamento estratégico crucial."
-        },
-        {
-          q: "Qual o peso aproximado das luvas de treino mais comum no Sanda?",
-          opts: ["10oz – 12oz", "4oz – 6oz", "16oz – 18oz"],
-          correct: 0,
-          explanation: "As luvas de 10oz a 12oz são as mais usadas em treino de Sanda. Luvas mais pesadas (14–16oz) são preferidas em sparring intenso para maior proteção, enquanto as mais leves são usadas em competição profissional."
-        }
+            { q: "Qual o nome do pontapé circular?", opts: ["Bian Ti", "Shuai Jiao", "Chuan Quan"], correct: 0, explanation: "Bian Ti é o nome técnico do pontapé circular de Sanda." },
+      { q: "O que é o 'Catch Kick'?", opts: ["Saltar o chute", "Agarrar a perna para derrubar", "Esquivar"], correct: 1, explanation: "Capturar a perna adversária permite anular o ataque e forçar uma projeção." },
+      { q: "O pontapé frontal (Bian Ti) visa:", opts: ["Afastar ou atingir o centro", "Apenas as mãos", "Derrubar sem tocar"], correct: 0, explanation: "O pontapé frontal controla o espaço e pode atingir o tronco com impacto seco." },
+      { q: "O pé de apoio deve:", opts: ["Ficar imóvel", "Rodar ligeiramente", "Saltar"], correct: 2, explanation: "Rodar o pé de apoio ajuda na mecânica do chute e preserva o joelho." },
+      { q: "O que é um 'Sweep' (Varredura)?", opts: ["Um tipo de soco", "Derrube na perna de apoio", "Um pontapé alto"], correct: 0, explanation: "A varredura ataca a base do adversário para o fazer cair." }
         ]
     },
    //perguntas do equipamento
     equipamento: {
         questions: [
-            {
-          q: "Qual o objetivo principal do Catch Kick no Sanda?",
-          opts: ["Bloquear o ataque sem contrapartida", "Capturar a perna e executar uma projeção", "Fugir do alcance do adversário"],
-          correct: 1,
-          explanation: "O Catch Kick (captura de pontapé) é uma das técnicas mais características do Sanda: ao agarrar a perna do adversário, o praticante pode desequilibrá-lo e executar uma projeção (Shuai), ganhando pontos no Lei Tai."
-        },
-        {
-          q: "O equipamento obrigatório no Sanda amador inclui:",
-          opts: ["Nenhum equipamento de proteção", "Capacete homologado e protetor de peito", "Apenas luvas de boxe"],
-          correct: 2,
-          explanation: "No Sanda amador, o capacete e o protetor de peito (peitoral) são obrigatórios por normas de segurança. Ligaduras, caneleiras e protetor bucal também são altamente recomendados."
-        },
-        {
-          q: "A técnica 'Shuai' refere-se a:",
-          opts: ["Técnicas de projeção e derrube", "Socos em linha reta (jab/direto)", "Combinações de pontapés circulares"],
-          correct: 0,
-          explanation: "Shuai (摔) significa 'lançar' ou 'derrubar' em mandarim. No Sanda, as técnicas de Shuai são projeções inspiradas no Shuai Jiao (luta chinesa), que valem pontos quando o adversário toca o chão."
-        },
-        {
-          q: "O ringue tradicional do Sanda é denominado:",
-          opts: ["Tatami", "Lei Tai", "Dojo"],
-          correct: 1,
-          explanation: "O Lei Tai (擂台) é a plataforma elevada tradicional usada no Sanda. Historicamente era uma plataforma sem grades — cair fora do ringue também significa perda de pontos, tornando o posicionamento estratégico crucial."
-        },
-        {
-          q: "Qual o peso aproximado das luvas de treino mais comum no Sanda?",
-          opts: ["10oz – 12oz", "4oz – 6oz", "16oz – 18oz"],
-          correct: 0,
-          explanation: "As luvas de 10oz a 12oz são as mais usadas em treino de Sanda. Luvas mais pesadas (14–16oz) são preferidas em sparring intenso para maior proteção, enquanto as mais leves são usadas em competição profissional."
-        }
+            { q: "Peso de luvas para sparring:", opts: ["4oz", "10-12oz", "16oz+"], correct: 2, explanation: "Luvas de 16oz oferecem maior proteção para ambos os praticantes." },
+      { q: "Por que usar ligaduras?", opts: ["Estética", "Proteger ossos e pulso", "Peso extra"], correct: 1, explanation: "Ligaduras estabilizam o pulso e protegem os metacarpos." },
+      { q: "O capacete é obrigatório em:", opts: ["Treino livre", "Competição amadora", "Nunca"], correct: 0, explanation: "O capacete é norma de segurança obrigatória em competições amadoras." },
+      { q: "O protetor bucal protege:", opts: ["Apenas os lábios", "Mandíbula e dentes", "A língua"], correct: 2, explanation: "Além dos dentes, reduz o choque transmitido à mandíbula." },
+      { q: "O peitoral serve para:", opts: ["Absorver impactos no tronco", "Ficar mais pesado", "Proteger os pés"], correct: 0, explanation: "O peitoral é essencial para absorver a força de socos e pontapés no peito." }
         ]
     }
 };
