@@ -76,8 +76,8 @@ const database = {
 let currentChapterIndex = 0; 
 
 function startQuiz(type, chapterIndex) {
-    currentChapterIndex = chapterIndex; // Guarda o índice ao abrir a tab
-    quizType = type;
+    currentChapterIndex = chapterIndex; 
+    quizType = type; // 'intro', 'socos', 'pontapes', ou 'equipamento'
     currentIndex = 0;
     score = 0;
     answered = false;
