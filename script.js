@@ -4,7 +4,7 @@
    progresso, acessibilidade e UX melhorada
 ═══════════════════════════════════════════════════════ */
 
-/*const database = {
+const database = {
     sanda: {
       questions: [
         {
@@ -39,31 +39,7 @@
         }
       ]
     }
-  };*/
-
-const database = {
-    intro: {
-        questions: [
-            { q: "Qual o significado de 'Lei Tai'?", opts: ["Tapete", "Plataforma", "Dojo"], correct: 1, explanation: "..." }
-            // ... mais perguntas de introdução
-        ]
-    },
-    socos: {
-        questions: [
-            { q: "O que gera a potência num soco de Sanda?", opts: ["Braço", "Anca e pernas", "Ombros"], correct: 1, explanation: "A potência é gerada pela rotação da anca e transferência de peso." }
-        ]
-    },
-    pontapes: {
-        questions: [
-            { q: "Qual a função do pontapé frontal no Sanda?", opts: ["Afastar oponente", "Nocautear", "Projetar"], correct: 0, explanation: "..." }
-        ]
-    },
-    equipamento: {
-        questions: [
-            { q: "O protetor de peito é obrigatório?", opts: ["Sim", "Não", "Só em profissionais"], correct: 0, explanation: "..." }
-        ]
-    }
-};
+  };
   
   /* ── Estado do quiz ─────────────────────────── */
   let currentIndex = 0;
