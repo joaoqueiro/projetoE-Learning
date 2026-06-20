@@ -15,14 +15,14 @@ const database = {
         },
         {
           q: "O equipamento obrigatório no Sanda amador inclui:",
-          opts: ["Apenas luvas de boxe", "Capacete homologado e protetor de peito", "Nenhum equipamento de proteção"],
-          correct: 1,
+          opts: ["Nenhum equipamento de proteção", "Capacete homologado e protetor de peito", "Apenas luvas de boxe"],
+          correct: 2,
           explanation: "No Sanda amador, o capacete e o protetor de peito (peitoral) são obrigatórios por normas de segurança. Ligaduras, caneleiras e protetor bucal também são altamente recomendados."
         },
         {
           q: "A técnica 'Shuai' refere-se a:",
-          opts: ["Combinações de pontapés circulares", "Socos em linha reta (jab/direto)", "Técnicas de projeção e derrube"],
-          correct: 2,
+          opts: ["Técnicas de projeção e derrube", "Socos em linha reta (jab/direto)", "Combinações de pontapés circulares"],
+          correct: 0,
           explanation: "Shuai (摔) significa 'lançar' ou 'derrubar' em mandarim. No Sanda, as técnicas de Shuai são projeções inspiradas no Shuai Jiao (luta chinesa), que valem pontos quando o adversário toca o chão."
         },
         {
@@ -33,8 +33,8 @@ const database = {
         },
         {
           q: "Qual o peso aproximado das luvas de treino mais comum no Sanda?",
-          opts: ["4oz – 6oz", "10oz – 12oz", "16oz – 18oz"],
-          correct: 1,
+          opts: ["10oz – 12oz", "4oz – 6oz", "16oz – 18oz"],
+          correct: 0,
           explanation: "As luvas de 10oz a 12oz são as mais usadas em treino de Sanda. Luvas mais pesadas (14–16oz) são preferidas em sparring intenso para maior proteção, enquanto as mais leves são usadas em competição profissional."
         }
       ]
