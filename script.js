@@ -253,7 +253,7 @@ function startQuiz(type, chapterIndex) {
   /* ── Carregar pergunta ──────────────────────── */
   function loadQuestion(type) {
     const questions = database[type].questions;
-    const qData = questions[currentIndex];
+    const qData = database[type].questions[currentIndex];
     const total = questions.length;
   
     answered = false;
